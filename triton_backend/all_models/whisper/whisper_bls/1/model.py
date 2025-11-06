@@ -171,7 +171,7 @@ class TritonPythonModel:
                 wav = wav[:wav_len]
                 target = 0
             else:
-                target = 3000
+                target = 1500
 
             mel = self.feature_extractor.compute_feature(wav, target).transpose(1, 2)
             mel_len = np.array([[mel.shape[1]]], dtype=np.int32)
