@@ -88,7 +88,7 @@ class FeatureExtractor(torch.nn.Module):
         self.n_mels = n_mels
         self.filters = mel_filters(self.device, n_mels=self.n_mels)
 
-    def compute_feature(self, wav, target: int = 3000):
+    def compute_feature(self, wav, target: int = 1500):
         mel = log_mel_spectrogram(wav, self.filters)
         if mel.shape[1] < target:
             mel = F.pad(mel, (0, target - mel.shape[1]), mode='constant')
