@@ -129,7 +129,7 @@ class TritonPythonModel:
                 output_token_ids = output_token_ids_full[-num_generated:] if num_generated > 0 else []
 
                 # Decode generated text
-                output_text = self.tokenizer.decode(output_token_ids).strip()
+                output_text = self.tokenizer.decode(output_token_ids_full).strip()
                 output_text = re.sub(r'<\|.*?\|>', '', output_text)
 
                 # Convert to tensors
